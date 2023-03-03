@@ -52,7 +52,7 @@
                                         {{$post->title}}
                                     </td>
                                     <td scope="col-4" class="px-6 py-4">
-                                        {{$post->body}}
+                                    {{ substr($post->body, 0, 100) }}
                                     </td>
                                     <td scope="col-4" class="px-6 py-4">
                                        <img style ="width:100px;" src="{{asset('images/post/'.$post->image)}}">      

@@ -63,7 +63,7 @@
                         </div>
                         <div class="card-text">
                             <p>
-                                {{$post->body}}
+                            {{ substr($post->body, 0, 100) }} 
                             </p>
                         </div>
                         <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
@@ -74,7 +74,7 @@
         </div>
         @endforeach
 
-
+        
         {{$posts->links()}}
     </div>
 </body>
