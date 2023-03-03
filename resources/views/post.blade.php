@@ -10,7 +10,7 @@
 
     <div class="py-12">
 
-        <form class="" method="POST">
+        <form action="{{route('post_create')}}" method="POST" enctype="multipart/form-data">
 
             @csrf
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -26,11 +26,22 @@
                         <input id="title" rows="4" col="10" name="title"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Title ">
+
                         <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body
                         </label>
                         <textarea id="body" rows="4" col="10" name="body"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a post......"></textarea>
+
+                        <label for="title"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my3">image
+                        </label>
+                        <input id="image" rows="4" col="10" name="image" type="file" 
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control"
+                            >
+
+                        
+
 
                     </div>
 

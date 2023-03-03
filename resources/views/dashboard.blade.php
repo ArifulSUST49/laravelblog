@@ -21,13 +21,19 @@
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col-2" class="px-6 py-4 ml-4">
-                                        NAME
+                                        Creator Name
                                     </th>
                                     <th scope="col-3" class="px-6 py-3">
                                         TITLE
                                     </th>
                                     <th scope="col-4" class="px-6 py-3">
                                         BODY
+                                    </th>
+                                    <th scope="col-4" class="px-6 py-3">
+                                        Image
+                                    </th>
+                                    <th scope="col-4" class="px-6 py-3">
+                                        Created_Date
                                     </th>
 
                                     <th scope="col-2" class="px-6 py-3">
@@ -44,6 +50,14 @@
                                     </td>
                                     <td scope="col-3" class="px-6 py-4">
                                         {{$post->title}}
+                                    </td>
+                                    <td scope="col-4" class="px-6 py-4">
+                                        {{$post->body}}
+                                    </td>
+                                    <td scope="col-4" class="px-6 py-4">
+                                       <img style ="width:150px;" src="{{asset('images/post/'.$post->image)}}"> 
+                                    
+                                  
                                     </td>
                                     <td scope="col-4" class="px-6 py-4">
                                         {{$post->body}}

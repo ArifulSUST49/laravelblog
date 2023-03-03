@@ -26,6 +26,23 @@ class PostController extends Controller
       $post  = new Post;  
       $post->title = $request->title;
       $post->body = $request->body;
+      //$post->image = $request->image;
+
+      $post->creator_name = $request->creator_name;
+      $post->created_at=$request->created_at;
+      if($request -> hasFile('image')){
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+
+        $filename = time(). '.' .$extension;
+        $file->move('images/post',$filename);
+        $post->image =$filename;
+          }
+          else
+          {
+            return $request;
+            $post->image = '';
+          }
       $user->post()->save($post);
       return redirect(route('post_index'))->with('status','Post Added');
     }
