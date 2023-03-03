@@ -55,12 +55,11 @@
                                         {{$post->body}}
                                     </td>
                                     <td scope="col-4" class="px-6 py-4">
-                                       <img style ="width:150px;" src="{{asset('images/post/'.$post->image)}}"> 
-                                    
+                                       <img style ="width:100px;" src="{{asset('images/post/'.$post->image)}}">      
                                   
                                     </td>
                                     <td scope="col-4" class="px-6 py-4">
-                                        {{$post->body}}
+                                        {{$post->created_at}}
                                     </td>
                                     <td scope="col-2" class=" px-6 py-4 whitespace-nowrap text-sm font-medium">
 

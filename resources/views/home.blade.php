@@ -10,50 +10,72 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    .card img {
+        height: 280px;
+    }
+    </style>
 
 
 </head>
 
 <body class="antialiased">
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            @auth
-            <a href="{{ url('/dashboard') }}"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-            @else
-            <a href="{{ route('login') }}"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                in</a>
+    <div class="container">
+        <div
+            class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+                @auth
+                <a href="{{ url('/dashboard') }}"
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                @else
+                <a href="{{ route('login') }}"
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                    in</a>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}"
-                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                @endif
+                @endauth
+            </div>
             @endif
-            @endauth
         </div>
-        @endif
 
-        <div class="max-w-7xl mx-auto p-6 lg:p-8">
-            @foreach($posts as $post)
-            <div class="card mb-3">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{$post->title}}</h5>
-                    <p class="card-text">{{$post->body}}</p>
-                
+
+
+
+        <div class="text-center my-5">
+            <h1>Blog Posts </h1>
+            <hr />
+        </div>
+        @foreach($posts as $post)
+        <div class="row">
+      
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-5 shadow-sm">
+                    <img src="{{asset('images/post/'.$post->image)}}" class="img-fluid" />
+
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>{{$post->title}}</h2>
+                        </div>
+                        <div class="card-text">
+                            <p>
+                                {{$post->body}}
+                            </p>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                    </div>
                 </div>
             </div>
-            
-            @endforeach
-
+         
         </div>
+        @endforeach
 
-        {{-- Pagination --}}
-        <div class="d-flex justify-content-center">
-            {!! $posts->links() !!}
-        </div>
+
+        {{$posts->links()}}
     </div>
 </body>
 
